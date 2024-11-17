@@ -1,10 +1,3 @@
-name: Deploy to Vercel
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,10 +11,10 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: npm install
+        run: cd client && npm install
 
       - name: Build project
-        run: npm run build
+        run: cd client && npm run build
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
@@ -30,4 +23,3 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           project-name: consulting-website-frontend
           working-directory: ./client
-
