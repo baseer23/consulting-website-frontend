@@ -1,33 +1,21 @@
 import React from "react";
+import niagaraFalls from "../assets/niagara-falls.png"; // Correct path to your image
 
 const Portfolio = () => {
-  const projects = [
-    {
-      title: "AI-Driven Dashboard",
-      description: "Built a real-time analytics dashboard for business insights.",
-    },
-    {
-      title: "Customer Segmentation",
-      description: "Used machine learning to improve customer segmentation.",
-    },
-    {
-      title: "Time Series Forecasting",
-      description: "Predicted trends using advanced forecasting models.",
-    },
-  ];
-
   return (
-    <div className="container">
-      <h2>Portfolio</h2>
-      <p>Here are some of our successful projects:</p>
-      <ul>
-        {projects.map((project, index) => (
-          <li key={index} style={{ marginBottom: "10px" }}>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="relative h-screen w-full">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${niagaraFalls})` }}
+      ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <h1 className="text-white text-4xl md:text-6xl font-bold text-center shadow-lg">
+          Hi, I am Abdul Baseer, founder of Thinkcharge. <br /> I am a philosopher by design.
+        </h1>
+      </div>
     </div>
   );
 };

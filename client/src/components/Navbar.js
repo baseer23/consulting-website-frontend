@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav>
-      <h1>Consulting Website</h1>
+      <h1>ThinkCharge</h1>
       <div>
         <Link to="/" style={{ margin: "0 10px" }}>
           Home

@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
   return (
     <div className="container">
-      <h2>Basheer Khan Experience</h2>
+      <h2>Thinking Machine</h2>
       <p>
         We provide AI-driven solutions to help businesses achieve their goals.
         Explore our portfolio to see our successful projects or get in touch
