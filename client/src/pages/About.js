@@ -32,7 +32,7 @@ function About() {
   return (
     <div className="h-screen bg-gray-100 flex flex-col items-center justify-center relative">
       {/* Header Section */}
-      <h2 className="text-3xl font-bold mb-6">About Me: Abdul Baseer Khan</h2>
+      <h2 className="text-3xl font-bold mb-6">Abdul Baseer Khan</h2>
       <p className="text-center max-w-3xl mb-12 text-lg">
         I am a passionate Data Scientist and Machine Learning Engineer with expertise in NLP, Computer Vision, and Time Series Forecasting. I am driven by a love for solving real-world problems using cutting-edge AI technologies.
       </p>
