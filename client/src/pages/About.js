@@ -1,31 +1,65 @@
-// About.js
 import React from 'react';
 
 function About() {
+  const links = [
+    {
+      image: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png',
+      url: 'https://www.linkedin.com/in/abdulbaseerkhan/',
+    },
+    {
+      image: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png',
+      url: 'https://www.kaggle.com/abdulbaseermohammed',
+    },
+    {
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdDe6lddf0n1wCg1gtKp-e0cd3G24pqQV8eg&s',
+      url: 'https://www.fiverr.com/indian_guy',
+    },
+    {
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Google_Scholar_logo.svg/1200px-Google_Scholar_logo.svg.png',
+      url: 'https://scholar.google.com/citations?user=94RyFREAAAAJ',
+    },
+    {
+      image: 'https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_640.png',
+      url: 'https://github.com/baseer23/',
+    },
+    {
+      image: '',
+      url: 'https://drive.google.com/file/d/1R3CJRwWQGzQbpnI4mIchw_zZDBUYzljj/view?usp=sharing',
+      label: 'CV',
+    },
+  ];
+
   return (
     <div className="h-screen bg-gray-100 flex flex-col items-center justify-center relative">
-      <h2 className="text-3xl font-bold mb-4">About Me: Abdul Baseer Khan</h2>
-      <p className="text-center max-w-3xl mb-8">
+      {/* Header Section */}
+      <h2 className="text-3xl font-bold mb-6">About Me: Abdul Baseer Khan</h2>
+      <p className="text-center max-w-3xl mb-12 text-lg">
         I am a passionate Data Scientist and Machine Learning Engineer with expertise in NLP, Computer Vision, and Time Series Forecasting. I am driven by a love for solving real-world problems using cutting-edge AI technologies.
       </p>
-      <div className="flex gap-6 mb-6">
-        <a href="https://www.kaggle.com/abdulbaseer" target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition">Kaggle</a>
-        <a href="https://www.fiverr.com/abdulbaseer" target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition">Fiverr</a>
-        <a href="https://www.linkedin.com/in/abdulbaseer" target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition">LinkedIn</a>
-        <a href="https://twitter.com/abdulbaseer" target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition">Twitter</a>
-      </div>
-      <div className="absolute right-10 top-1/2 transform -translate-y-1/2">
-        <div className="relative w-32 h-32">
-          <div className="absolute inset-0 w-full h-full bg-green-500 rounded-full"></div>
+
+      {/* Card Section */}
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mb-12 px-4">
+        {links.map((link, index) => (
           <a
-            href="/path-to-resume.pdf"
+            key={index}
+            href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute inset-4 w-24 h-24 flex items-center justify-center bg-blue-500 text-white rounded-full text-center text-sm font-bold hover:bg-blue-600 transition"
+            className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col items-center text-center p-4"
           >
-            Resume
+            {link.image ? (
+              <img
+                src={link.image}
+                alt=""
+                className="w-24 h-24 object-contain mb-4"
+              />
+            ) : (
+              <span className="w-24 h-24 flex items-center justify-center bg-green-500 text-white text-lg font-bold rounded-md">
+                {link.label}
+              </span>
+            )}
           </a>
-        </div>
+        ))}
       </div>
     </div>
   );
