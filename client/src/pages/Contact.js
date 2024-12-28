@@ -15,16 +15,11 @@ function Contact() {
   });
   const [error, setError] = useState('');
   const [confirmation, setConfirmation] = useState(null);
-  const [anonymousTip, setAnonymousTip] = useState('');
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleTipChange = (e) => {
-    setAnonymousTip(e.target.value);
   };
 
   const handleDateSelect = (selectionInfo) => {
@@ -66,36 +61,22 @@ function Contact() {
     setConfirmation('Thank you! Your message has been received. We will get back to you shortly.');
 
     console.log('Form Data:', formData);
-    if (anonymousTip) console.log('Anonymous Tip:', anonymousTip);
     if (selectedEvent) console.log('Selected Event:', selectedEvent);
 
     // Reset form after submission
     setTimeout(() => {
       setFormData({ name: '', email: '', message: '', date: '', time: '' });
-      setAnonymousTip('');
       setSelectedEvent(null);
     }, 3000);
   };
 
   return (
     <div className="h-screen bg-gray-500 flex items-center justify-center">
-      <div className="flex w-full max-w-[1600px]">
-        {/* Left Pane - Anonymous Tips */}
-        <div className="w-1/3 bg-gray-100 p-8">
-          <h2 className="text-3xl font-bold mb-4">Anonymous Tips</h2>
-          <textarea
-            name="anonymousTip"
-            placeholder="Leave your anonymous tip here..."
-            value={anonymousTip}
-            onChange={handleTipChange}
-            className="w-full border p-4 rounded h-48"
-          ></textarea>
-        </div>
-
-        {/* Middle Pane - Contact Form */}
-        <div className="w-1/3 bg-gray-100 p-8">
-          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-          <form className="space-y-6" onSubmit={handleSubmit}>
+      <div className="flex flex-col lg:flex-row w-full max-w-7xl gap-4 px-4">
+        {/* Contact Form Pane */}
+        <div className="lg:w-1/2 bg-gray-100 p-8 rounded shadow-md">
+          <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
@@ -119,7 +100,7 @@ function Contact() {
               onChange={handleInputChange}
               className="w-full border p-4 rounded h-48"
             ></textarea>
-            <button className="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition">
+            <button className="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition w-full">
               Submit
             </button>
           </form>
@@ -127,10 +108,10 @@ function Contact() {
           {confirmation && <p className="text-green-500 mt-4">{confirmation}</p>}
         </div>
 
-        {/* Right Pane - Calendar */}
-        <div className="w-1/3 bg-gray-100 p-8">
-          <h2 className="text-3xl font-bold mb-4">Schedule a Meeting</h2>
-          <div className="bg-white p-6 rounded shadow">
+        {/* Calendar Pane */}
+        <div className="lg:w-1/2 bg-gray-100 p-8 rounded shadow-md">
+          <h2 className="text-2xl font-bold mb-4">Schedule a Meeting</h2>
+          <div className="bg-white p-4 rounded shadow">
             <FullCalendar
               plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
               initialView="timeGridWeek"
