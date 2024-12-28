@@ -1,6 +1,5 @@
 // Contact.js
-import React, { useState, useEffect } from 'react';
-import Confetti from 'react-confetti';
+import React, { useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -17,7 +16,6 @@ function Contact() {
   const [error, setError] = useState('');
   const [confirmation, setConfirmation] = useState(null);
   const [anonymousTip, setAnonymousTip] = useState('');
-  const [showConfetti, setShowConfetti] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const handleInputChange = (e) => {
@@ -66,29 +64,21 @@ function Contact() {
 
     setError('');
     setConfirmation('Thank you! Your message has been received. We will get back to you shortly.');
-    console.log('Triggering confetti...');
-    setShowConfetti(true);
 
-    // Simulate data storage
     console.log('Form Data:', formData);
     if (anonymousTip) console.log('Anonymous Tip:', anonymousTip);
     if (selectedEvent) console.log('Selected Event:', selectedEvent);
 
+    // Reset form after submission
     setTimeout(() => {
-      setShowConfetti(false);
       setFormData({ name: '', email: '', message: '', date: '', time: '' });
       setAnonymousTip('');
       setSelectedEvent(null);
-    }, 3000); // Confetti displays for 3 seconds
+    }, 3000);
   };
-
-  useEffect(() => {
-    console.log('Confetti state changed:', showConfetti);
-  }, [showConfetti]);
 
   return (
     <div className="h-screen bg-gray-500 flex items-center justify-center">
-      {showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} />}
       <div className="flex w-full max-w-[1600px]">
         {/* Left Pane - Anonymous Tips */}
         <div className="w-1/3 bg-gray-100 p-8">
