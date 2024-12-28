@@ -148,8 +148,6 @@ function Contact() {
               selectMirror={true}
               events={selectedEvent ? [selectedEvent] : []}
               select={handleDateSelect}
-              contentWidth="100%"
-              aspectRatio={1.5}
             />
           </div>
         </div>
