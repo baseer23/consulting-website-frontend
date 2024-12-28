@@ -1,19 +1,16 @@
-import React from "react";
+// Home.js
+import React from 'react';
 
-const Home = () => {
+function Home() {
   return (
-    <div className="container">
-      <h2>Thinking Machine</h2>
-      <p>
-        We provide AI-driven solutions to help businesses achieve their goals.
-        Explore our portfolio to see our successful projects or get in touch
-        with us for a consultation.
-      </p>
-      <button onClick={() => (window.location.href = "/contact")}>
-        Book a Consultation
-      </button>
+    <div className="h-screen bg-gray-100 flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Welcome to Aisha</h1>
+        <p className="text-xl mb-6">Your AI-powered requirements gathering assistant.</p>
+        <a href="#about" className="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition">Learn More</a>
+      </div>
     </div>
   );
-};
+}
 
 export default Home;

@@ -1,23 +1,41 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Portfolio from "./pages/Portfolio";
-import Contact from "./pages/Contact";
-import "./styles/global.css";
+// App.js
+import React from 'react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import SmoothScroll from './components/SmoothScroll';
+import Home from './pages/Home';
+import Aisha from './pages/Aisha';
+import About from './pages/About';
+import Portfolio from './pages/Portfolio';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <SmoothScroll>
+        <section id="home" className="h-screen">
+          <Home />
+        </section>
+        <section id="aisha" className="h-screen">
+          <Aisha />
+        </section>
+        <section id="about" className="h-screen">
+          <About />
+        </section>
+        <section id="portfolio" className="h-screen">
+          <Portfolio />
+        </section>
+        <section id="services" className="h-screen">
+          <Services />
+        </section>
+        <section id="contact" className="h-screen">
+          <Contact />
+        </section>
+      </SmoothScroll>
       <Footer />
-    </Router>
+    </div>
   );
 }
 

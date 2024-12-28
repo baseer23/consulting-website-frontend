@@ -1,11 +1,12 @@
-import React from "react";
+// Footer.js
+import React from 'react';
 
-const Footer = () => {
+function Footer() {
   return (
-    <footer>
-      <p>© 2024 ThinkCharge Website. All Rights Reserved.</p>
+    <footer className="bg-gray-800 text-white text-center py-4">
+      <p>&copy; {new Date().getFullYear()} Aisha. All rights reserved.</p>
     </footer>
   );
-};
+}
 
 export default Footer;
