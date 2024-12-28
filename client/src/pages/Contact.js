@@ -1,5 +1,5 @@
 // Contact.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -66,25 +66,25 @@ function Contact() {
 
     setError('');
     setConfirmation('Thank you! Your message has been received. We will get back to you shortly.');
+    console.log('Triggering confetti...');
     setShowConfetti(true);
 
-    // Placeholder for storing data in a database
+    // Simulate data storage
     console.log('Form Data:', formData);
-    if (anonymousTip) {
-      console.log('Anonymous Tip:', anonymousTip);
-    }
-    if (selectedEvent) {
-      console.log('Selected Event:', selectedEvent);
-    }
+    if (anonymousTip) console.log('Anonymous Tip:', anonymousTip);
+    if (selectedEvent) console.log('Selected Event:', selectedEvent);
 
-    // Reset form after submission
     setTimeout(() => {
       setShowConfetti(false);
       setFormData({ name: '', email: '', message: '', date: '', time: '' });
       setAnonymousTip('');
       setSelectedEvent(null);
-    }, 5000);
+    }, 3000); // Confetti displays for 3 seconds
   };
+
+  useEffect(() => {
+    console.log('Confetti state changed:', showConfetti);
+  }, [showConfetti]);
 
   return (
     <div className="h-screen bg-gray-500 flex items-center justify-center">
