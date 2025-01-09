@@ -1,4 +1,3 @@
-// Aisha.js
 import React, { useState } from 'react';
 
 function Aisha() {
@@ -12,14 +11,12 @@ function Aisha() {
   const handleSend = async () => {
     if (!inputValue.trim()) return;
 
-    // Add user message to the chat
     const userMessage = { sender: 'You', text: inputValue };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
     setInputValue('');
     setIsLoading(true);
 
     try {
-      // Placeholder for serverless API call
       const simulatedResponse = new Promise((resolve) => {
         setTimeout(() => resolve({ reply: 'This is a simulated response.' }), 1000);
       });
@@ -37,17 +34,30 @@ function Aisha() {
   };
 
   return (
-    <div className="h-screen bg-gray-200 flex items-center justify-center">
+    <div className="h-screen bg-gray-200 flex flex-col items-center justify-center px-6">
+      {/* Introduction Section */}
+      <div className="w-full max-w-6xl bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg p-6 mb-6 shadow-lg">
+        <h2 className="text-3xl font-bold mb-2">Meet Aisha</h2>
+        <p className="text-lg leading-relaxed">
+          Aisha is your intelligent assistant, designed to simplify project requirements gathering and streamline communication.
+          Using advanced AI, she bridges the gap between technical and non-technical teams, ensuring clarity, precision, and
+          faster execution. Let Aisha transform your ideas into actionable insights.
+        </p>
+      </div>
+
+      {/* Main UI */}
       <div className="flex w-full max-w-6xl">
         {/* Left Pane */}
         <div className="w-1/2 bg-gray-100 p-6 border-r border-gray-300">
-          <h3 className="text-xl font-bold mb-4">Knowledge Graph</h3>
+          <h3 className="text-xl font-bold mb-4 text-purple-600">Knowledge Graph</h3>
           <div className="border p-4 bg-white shadow-sm h-full">
             <p>Graph visualization will dynamically update here.</p>
             <div className="mt-4">
               <ul>
                 {messages.map((message, index) => (
-                  <li key={index} className="text-sm text-gray-700">{message.sender}: {message.text}</li>
+                  <li key={index} className="text-sm text-gray-700">
+                    {message.sender}: {message.text}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -56,7 +66,7 @@ function Aisha() {
 
         {/* Right Pane */}
         <div className="w-1/2 bg-gray-100 p-6">
-          <h3 className="text-xl font-bold mb-4">Chat with Aisha</h3>
+          <h3 className="text-xl font-bold mb-4 text-purple-600">Chat with Aisha</h3>
           <div className="border p-4 bg-white shadow-sm flex flex-col h-full">
             <div className="flex-1 overflow-y-auto mb-4">
               {messages.map((message, index) => (
