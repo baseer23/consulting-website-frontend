@@ -5,8 +5,7 @@ function About() {
     <div className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white flex flex-col items-center justify-center py-10">
       <h2 className="text-4xl font-bold mb-6 text-center animate-fade-in">About AKLO Labs</h2>
       <p className="text-center max-w-3xl mb-8 text-lg">
-        <strong>AKLO Labs</strong>
-        is committed to driving innovation, fostering research, and building intelligent systems. 
+        <strong>AKLO Labs</strong>, is committed to driving innovation, fostering research, and building intelligent systems. 
         We specialize in empowering businesses with data-driven solutions and cutting-edge AI technologies 
         to address complex challenges with precision and insight.
       </p>
