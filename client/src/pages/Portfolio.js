@@ -76,12 +76,12 @@ function Portfolio() {
     <div className="min-h-screen bg-gray-100 p-8 text-gray-900">
       {/* About the Founder */}
       <div className="mb-12">
-  <p className="text-center mt-4 max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed">
-    The mission is to harness the power of artificial intelligence to solve real-world challenges and deliver innovative, data-driven solutions. 
-    Led by Abdul Baseer Khan, a passionate Machine Learning Engineer with expertise in NLP, Computer Vision, and Time Series Forecasting, 
-    we are committed to empowering businesses and individuals with cutting-edge technology that drives meaningful impact. Whether you’re 
-    exploring new possibilities or optimizing existing processes, we’re here to help turn your vision into reality.
-  </p>
+      <p className="text-center mt-4 max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed">
+    The mission is to harness the potential of artificial intelligence to solve real-world challenges and deliver meaningful, data-driven solutions. 
+    By focusing on areas like NLP, Computer Vision, and Time Series Forecasting, I am committed to helping businesses and individuals 
+    explore new possibilities and improve existing processes. Together, we can work to turn your ideas into reality with thoughtful and impactful technology.
+</p>
+
 </div>
 
 
