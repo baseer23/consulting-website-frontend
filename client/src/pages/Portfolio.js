@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FaLinkedin, FaKaggle, FaGithub, FaGoogleDrive } from 'react-icons/fa';
+import { SiFiverr } from 'react-icons/si';
 
 function Portfolio() {
   const [expandedIndex, setExpandedIndex] = useState(null); // Track which recommendation is expanded
@@ -46,27 +48,27 @@ function Portfolio() {
 
   const links = [
     {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png',
+      icon: <FaLinkedin size={24} />,
       url: 'https://www.linkedin.com/in/abdulbaseerkhan/',
     },
     {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png',
+      icon: <FaKaggle size={24} />,
       url: 'https://www.kaggle.com/abdulbaseermohammed',
     },
     {
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdDe6lddf0n1wCg1gtKp-e0cd3G24pqQV8eg&s',
+      icon: <SiFiverr size={24} />,
       url: 'https://www.fiverr.com/indian_guy',
     },
     {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Google_Scholar_logo.svg/1200px-Google_Scholar_logo.svg.png',
+      icon: <FaGoogleDrive size={24} />,
       url: 'https://scholar.google.com/citations?user=94RyFREAAAAJ',
     },
     {
-      image: 'https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_640.png',
+      icon: <FaGithub size={24} />,
       url: 'https://github.com/baseer23/',
     },
     {
-      image: '',
+      icon: <FaGoogleDrive size={24} />,
       url: 'https://drive.google.com/file/d/1R3CJRwWQGzQbpnI4mIchw_zZDBUYzljj/view?usp=sharing',
       label: 'CV',
     },
@@ -76,34 +78,37 @@ function Portfolio() {
     <div className="min-h-screen bg-gray-100 p-8 text-gray-900">
       {/* About the Founder */}
       <div className="mb-12">
-      <p className="text-center mt-4 max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed">
-    The mission is to harness the potential of artificial intelligence to solve real-world challenges and deliver meaningful, data-driven solutions. 
-    By focusing on areas like NLP, Computer Vision, and Time Series Forecasting, I am committed to helping businesses and individuals 
-    explore new possibilities and improve existing processes. Together, we can work to turn your ideas into reality with thoughtful and impactful technology.
-</p>
-
-</div>
-
+        <p className="text-center mt-4 max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed">
+          The mission is to harness the potential of artificial intelligence to solve real-world challenges and deliver meaningful, data-driven solutions. 
+          By focusing on areas like NLP, Computer Vision, and Time Series Forecasting, I am committed to helping businesses and individuals 
+          explore new possibilities and improve existing processes. Together, we can work to turn your ideas into reality with thoughtful and impactful technology.
+        </p>
+      </div>
 
       {/* Customer Reviews */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {recommendations.map((rec, index) => (
-          <div key={index} className="border p-4 bg-white shadow-sm rounded">
+          <div
+            key={index}
+            className="relative border p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition duration-300"
+          >
             <div className="flex items-center mb-4">
               <img
                 src={rec.profilePicture}
                 alt={`${rec.name}'s profile`}
-                className="w-12 h-12 rounded-full mr-4"
+                className="w-16 h-16 rounded-full mr-4"
               />
               <div>
-                <h4 className="text-lg font-bold">{rec.name}</h4>
+                <h4 className="text-lg font-bold text-gray-800">{rec.name}</h4>
                 <p className="text-sm text-gray-600">{rec.title}</p>
               </div>
             </div>
-            <p className="mb-4">{rec.message.substring(0, 100)}...</p>
+            <p className="text-gray-700 mb-6">
+              {rec.message.substring(0, 100)}...
+            </p>
             <button
               onClick={() => setExpandedIndex(index)}
-              className="text-blue-500 hover:underline"
+              className="absolute bottom-4 right-4 text-blue-500 hover:underline"
             >
               Read More
             </button>
@@ -113,40 +118,36 @@ function Portfolio() {
 
       {/* Overlay for Expanded Recommendation */}
       {expandedIndex !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded shadow-lg max-w-lg">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-xl max-w-lg relative">
             <button
               onClick={() => setExpandedIndex(null)}
-              className="text-green-500 font-bold mb-4"
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
             >
-              Back
+              ✕
             </button>
-            <div className="mb-4">
-              <h4 className="text-xl font-bold">{recommendations[expandedIndex].name}</h4>
-              <p className="text-sm text-gray-600">{recommendations[expandedIndex].title}</p>
-            </div>
-            <p>{recommendations[expandedIndex].message}</p>
+            <h4 className="text-2xl font-bold text-gray-900 mb-2">
+              {recommendations[expandedIndex]?.name}
+            </h4>
+            <p className="text-sm text-gray-600 mb-4">
+              {recommendations[expandedIndex]?.title}
+            </p>
+            <p className="text-gray-700">{recommendations[expandedIndex]?.message}</p>
           </div>
         </div>
       )}
 
       {/* Links Section */}
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-6 mt-12">
+      <div className="flex flex-wrap justify-center gap-4 mt-8">
         {links.map((link, index) => (
           <a
             key={index}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col items-center text-center p-4"
+            className="flex items-center justify-center w-12 h-12 bg-white shadow-md rounded-full"
           >
-            {link.image ? (
-              <img src={link.image} alt="Link" className="w-20 h-20 object-contain mb-4" />
-            ) : (
-              <span className="w-20 h-20 flex items-center justify-center bg-green-500 text-white text-lg font-bold rounded-md">
-                {link.label}
-              </span>
-            )}
+            {link.icon}
           </a>
         ))}
       </div>
