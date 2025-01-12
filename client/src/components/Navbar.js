@@ -1,12 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom'; // Import navigation hooks
 import logo from '../assets/images/aklo_logo.png';
 import { FaCanadianMapleLeaf } from 'react-icons/fa';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLinkClick = (e, id) => {
     e.preventDefault();
+
+    // If the current path is not the homepage, navigate back to it
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        scrollToSection(id); // Scroll after navigating back to homepage
+      }, 100); // Small delay to ensure the homepage is rendered before scrolling
+    } else {
+      scrollToSection(id); // Scroll directly if already on homepage
+    }
+    setIsMobileMenuOpen(false); // Close mobile menu on link click
+  };
+
+  const scrollToSection = (id) => {
     const targetSection = document.getElementById(id);
     if (targetSection) {
       window.scrollTo({
@@ -14,7 +31,6 @@ function Navbar() {
         behavior: 'smooth',
       });
     }
-    setIsMobileMenuOpen(false); // Close mobile menu on link click
   };
 
   const navLinks = [

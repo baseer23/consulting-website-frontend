@@ -28,7 +28,7 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 flex flex-col items-center justify-center py-4 sm:py-8 space-y-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 flex flex-col items-center justify-center py-4 sm:py-8 space-y-12 pt-20">
       {/* Calendly Section */}
       <div className="w-full max-w-md sm:max-w-4xl bg-white p-4 sm:p-8 rounded-lg shadow-xl">
         <h2 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mb-8 text-center">
