@@ -3,7 +3,7 @@ import { FaLinkedin, FaKaggle, FaGithub, FaGoogleDrive } from 'react-icons/fa';
 import { SiFiverr } from 'react-icons/si';
 
 function Portfolio() {
-  const [expandedIndex, setExpandedIndex] = useState(null); // Track which recommendation is expanded
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   const recommendations = [
     {
@@ -48,37 +48,37 @@ function Portfolio() {
 
   const links = [
     {
-      icon: <FaLinkedin size={24} />,
+      icon: <FaLinkedin size={24} className="text-gray-200" />,
       url: 'https://www.linkedin.com/in/abdulbaseerkhan/',
     },
     {
-      icon: <FaKaggle size={24} />,
+      icon: <FaKaggle size={24} className="text-gray-200" />,
       url: 'https://www.kaggle.com/abdulbaseermohammed',
     },
     {
-      icon: <SiFiverr size={24} />,
+      icon: <SiFiverr size={24} className="text-gray-200" />,
       url: 'https://www.fiverr.com/indian_guy',
     },
     {
-      icon: <FaGoogleDrive size={24} />,
+      icon: <FaGoogleDrive size={24} className="text-gray-200" />,
       url: 'https://scholar.google.com/citations?user=94RyFREAAAAJ',
     },
     {
-      icon: <FaGithub size={24} />,
+      icon: <FaGithub size={24} className="text-gray-200" />,
       url: 'https://github.com/baseer23/',
     },
     {
-      icon: <FaGoogleDrive size={24} />,
+      icon: <FaGoogleDrive size={24} className="text-gray-200" />,
       url: 'https://drive.google.com/file/d/1R3CJRwWQGzQbpnI4mIchw_zZDBUYzljj/view?usp=sharing',
       label: 'CV',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8 text-gray-900">
+    <div className="min-h-screen bg-gray-950 p-8 text-gray-200">
       {/* About the Founder */}
       <div className="mb-12">
-        <p className="text-center mt-4 max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed">
+        <p className="text-center mt-4 max-w-4xl mx-auto text-lg text-gray-400 leading-relaxed">
           The mission is to harness the potential of artificial intelligence to solve real-world challenges and deliver meaningful, data-driven solutions. 
           By focusing on areas like NLP, Computer Vision, and Time Series Forecasting, I am committed to helping businesses and individuals 
           explore new possibilities and improve existing processes. Together, we can work to turn your ideas into reality with thoughtful and impactful technology.
@@ -90,7 +90,7 @@ function Portfolio() {
         {recommendations.map((rec, index) => (
           <div
             key={index}
-            className="relative border p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition duration-300"
+            className="relative border border-gray-800 p-6 bg-gray-900 shadow-lg rounded-lg hover:shadow-xl transition duration-300"
           >
             <div className="flex items-center mb-4">
               <img
@@ -99,16 +99,16 @@ function Portfolio() {
                 className="w-16 h-16 rounded-full mr-4"
               />
               <div>
-                <h4 className="text-lg font-bold text-gray-800">{rec.name}</h4>
-                <p className="text-sm text-gray-600">{rec.title}</p>
+                <h4 className="text-lg font-bold text-gray-200">{rec.name}</h4>
+                <p className="text-sm text-gray-500">{rec.title}</p>
               </div>
             </div>
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-400 mb-6">
               {rec.message.substring(0, 100)}...
             </p>
             <button
               onClick={() => setExpandedIndex(index)}
-              className="absolute bottom-4 right-4 text-blue-500 hover:underline"
+              className="absolute bottom-4 right-4 text-blue-400 hover:underline"
             >
               Read More
             </button>
@@ -118,21 +118,21 @@ function Portfolio() {
 
       {/* Overlay for Expanded Recommendation */}
       {expandedIndex !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-xl max-w-lg relative">
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+          <div className="bg-gray-900 p-6 rounded-lg shadow-xl max-w-lg relative">
             <button
               onClick={() => setExpandedIndex(null)}
-              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-300"
             >
               ✕
             </button>
-            <h4 className="text-2xl font-bold text-gray-900 mb-2">
+            <h4 className="text-2xl font-bold text-gray-200 mb-2">
               {recommendations[expandedIndex]?.name}
             </h4>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-gray-500 mb-4">
               {recommendations[expandedIndex]?.title}
             </p>
-            <p className="text-gray-700">{recommendations[expandedIndex]?.message}</p>
+            <p className="text-gray-400">{recommendations[expandedIndex]?.message}</p>
           </div>
         </div>
       )}
@@ -145,7 +145,7 @@ function Portfolio() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 bg-white shadow-md rounded-full"
+            className="flex items-center justify-center w-12 h-12 bg-gray-900 shadow-md rounded-full hover:bg-gray-800 transition duration-300"
           >
             {link.icon}
           </a>
