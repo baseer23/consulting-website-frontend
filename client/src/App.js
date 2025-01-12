@@ -12,25 +12,25 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-x-hidden bg-gray-900">
       <Navbar />
       <SmoothScroll>
-        <section id="home" className="h-screen">
+        <section id="home" className="min-h-screen py-12 px-4 md:px-8">
           <Home />
         </section>
-        <section id="aisha" className="h-screen">
+        <section id="aisha" className="min-h-screen py-12 px-4 md:px-8">
           <Aisha />
         </section>
-        <section id="about" className="h-screen">
+        <section id="about" className="min-h-screen py-12 px-4 md:px-8">
           <About />
         </section>
-        <section id="services" className="h-screen">
+        <section id="services" className="min-h-screen py-12 px-4 md:px-8">
           <Services />
         </section>
-        <section id="portfolio" className="h-screen">
+        <section id="portfolio" className="min-h-screen py-12 px-4 md:px-8">
           <Portfolio />
         </section>
-        <section id="contact" className="h-screen">
+        <section id="contact" className="min-h-screen py-12 px-4 md:px-8">
           <Contact />
         </section>
       </SmoothScroll>
