@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/images/aklo_logo.png';
 import { FaCanadianMapleLeaf } from 'react-icons/fa';
 
 function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const handleLinkClick = (e, id) => {
     e.preventDefault();
     const targetSection = document.getElementById(id);
@@ -12,6 +14,7 @@ function Navbar() {
         behavior: 'smooth',
       });
     }
+    setIsMobileMenuOpen(false); // Close mobile menu on link click
   };
 
   const navLinks = [
@@ -47,10 +50,11 @@ function Navbar() {
       </ul>
 
       {/* Mobile Menu */}
-      <div className="block md:hidden">
+      <div className="block md:hidden relative">
         <button
           className="text-white hover:text-red-400 focus:outline-none"
           aria-label="Open navigation menu"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -62,6 +66,21 @@ function Navbar() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
+        {isMobileMenuOpen && (
+          <ul className="absolute right-0 top-full mt-2 bg-gray-800 text-white rounded-lg shadow-lg w-48">
+            {navLinks.map((link) => (
+              <li key={link.id} className="border-b border-gray-700 last:border-0">
+                <a
+                  href={`#${link.id}`}
+                  onClick={(e) => handleLinkClick(e, link.id)}
+                  className="block px-4 py-2 hover:bg-gray-700 hover:text-red-400 transition"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       {/* Optional: Add Canadian Maple Leaf Icon */}
