@@ -86,7 +86,7 @@ function Portfolio() {
       </div>
 
       {/* Customer Reviews */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {recommendations.map((rec, index) => (
           <div
             key={index}
@@ -119,7 +119,7 @@ function Portfolio() {
       {/* Overlay for Expanded Recommendation */}
       {expandedIndex !== null && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="bg-gray-900 p-6 rounded-lg shadow-xl max-w-lg relative">
+          <div className="bg-gray-900 p-6 rounded-lg shadow-xl max-w-lg w-full relative">
             <button
               onClick={() => setExpandedIndex(null)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-300"

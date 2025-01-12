@@ -14,21 +14,23 @@ function Services() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-6">
-      <div className="max-w-4xl w-full text-center">
-        <h2 className="text-4xl font-extrabold text-purple-500 mb-6">
+    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 sm:px-6">
+      <div className="max-w-2xl w-full text-center">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-purple-500 mb-4 sm:mb-6">
           Our Services
         </h2>
-        <p className="text-gray-300 mb-8">
+        <p className="text-gray-300 text-sm sm:text-base mb-6 sm:mb-8">
           We specialize in delivering cutting-edge solutions in AI, machine learning, and data science to transform your business.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="p-6 bg-gray-800 shadow-lg rounded-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              className="p-4 sm:p-6 bg-gray-800 shadow-md sm:shadow-lg rounded-md transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <p className="text-lg font-medium text-gray-200">{service}</p>
+              <p className="text-sm sm:text-lg font-medium text-gray-200">
+                {service}
+              </p>
             </div>
           ))}
         </div>
