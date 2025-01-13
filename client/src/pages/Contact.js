@@ -28,17 +28,20 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex flex-col items-center py-12 space-y-16">
-      {/* Hero Section */}
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-extrabold text-gray-800">
-          Get in Touch with Us
-        </h1>
-        <p className="text-lg text-gray-600">
-          Whether you have a question, want to collaborate, or just want to say
-          hi, we’re here to help.
-        </p>
-      </div>
+    <div
+  className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex flex-col items-center py-12 space-y-16"
+  style={{ paddingTop: '6rem' }} // Adjust to match your navbar height
+>
+  {/* Hero Section */}
+  <div className="text-center space-y-4">
+    <h1 className="text-4xl font-extrabold text-gray-800">
+      Get in Touch with Us
+    </h1>
+    <p className="text-lg text-gray-600">
+      Whether you have a question, want to collaborate, or just want to say hi, we’re here to help.
+    </p>
+  </div>
+
 
       {/* Calendly Section */}
       <div className="w-full max-w-4xl bg-white p-6 sm:p-12 rounded-lg shadow-lg">
