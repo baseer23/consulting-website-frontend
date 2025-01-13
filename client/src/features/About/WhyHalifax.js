@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 
 function WhyHalifax() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
+    <div
+      className="min-h-screen bg-gray-50 text-gray-900"
+      style={{ paddingTop: '4rem' }} // Adjust for navbar height
+    >
       {/* Hero Section */}
       <section className="bg-blue-600 text-white py-16 text-center">
         <motion.h1
